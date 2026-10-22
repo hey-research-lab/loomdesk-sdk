@@ -114,6 +114,10 @@ export type ActionAsk = {
   to?: Address;
   /** the wallet that will send it, when it is the ladder's delegate and not its owner */
   actor?: Address;
+  /** close and close_part: pay everything out as one asset ("eth", "usdg" or a token address) through the ladder's
+   *  zap, which sells the other side in the pools that pay the most; left out, the two assets come back as they are.
+   *  The plan then carries expected.out (raw), expected.symbol, via (the pools) and lossPct. */
+  into?: "eth" | "usdg" | Address;
   /** delegate: the wallet that may run the ladder */
   who?: Address;
   /** delegate: permissions summed: 1 add, 2 remove, 4 collect, 8 rules; 0 ends the delegation */
